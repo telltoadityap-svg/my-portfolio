@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aditya Prakash - Full-Stack MERN Developer with 12+ years experience. Specialist in scalable web applications, eCommerce, banking, and SaaS systems.">
-    <meta name="keywords" content="Full-Stack Developer, MERN Stack, React, Node.js, MongoDB, Express, Freelancer, Web Developer">
-    <meta name="author" content="Aditya Prakash">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <meta name="theme-color" content="#6366f1">
-    <title>Aditya Prakash | Full-Stack MERN Developer | 12+ Years Experience</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="config.js"></script>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <a href="#home">Aditya Prakash</a>
-                </div>
+                <a href="#home" class="logo">
+                    <span class="logo-bracket">&lt;</span><span id="nav-initials"></span><span class="logo-bracket">/&gt;</span>
+                </a>
                 <button class="nav-toggle" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <!-- Populated by JavaScript -->
                 </ul>
             </div>
         </div>
@@ -42,25 +45,47 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Hi, I'm Aditya Prakash</h1>
-                    <p class="hero-subtitle">Full-Stack Web Developer | MERN Stack Expert | Python & Java Specialist</p>
-                    <p class="hero-description">12+ years of professional experience building scalable, enterprise-grade web applications for eCommerce, banking, and SaaS platforms</p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="https://www.upwork.com/freelancers/~01a611eb88692e6b85" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Hire Me on Upwork</a>
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span id="hero-badge-text"></span>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">12+</div>
-                            <div class="stat-label">Years Experience</div>
+                    <h1 class="hero-title">
+                        <span id="hero-greeting"></span> <span class="gradient-text" id="hero-name"></span>
+                    </h1>
+                    <div class="hero-typing">
+                        <span class="typing-text" id="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-description" id="hero-description"></p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            <span id="hero-cta-primary"></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span id="hero-cta-secondary"></span>
+                        </a>
+                    </div>
+                    <div class="hero-stats" id="hero-stats">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <div class="hero-social" id="hero-social">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="window-title" id="code-filename"></span>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">$55</div>
-                            <div class="stat-label">Hourly Rate</div>
+                        <div class="window-content">
+                            <pre><code id="code-content"></code></pre>
                         </div>
                     </div>
                 </div>
@@ -71,24 +96,38 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <h2>About Me</h2>
+                    <span class="section-tag" id="about-tag"></span>
+                    <h2 id="about-title"></h2>
                     <div class="header-line"></div>
                 </div>
                 <div class="about-content">
-                    <div class="about-text">
-                        <p>I am a Full-Stack Web Developer with 12+ years of professional experience specializing in MERN Stack (MongoDB, Express.js, React, Node.js), Python, Java, and REST API design.</p>
-                        <p>I deliver scalable web applications and complex systems for eCommerce, banking, and business platforms. Expert in system architecture, database optimization, DevOps practices, and agile methodologies.</p>
-                        <p>Available for long-term remote contracts, high-impact freelance projects, and architectural consulting. Let's discuss how I can help scale your application.</p>
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <div class="about-avatar">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                            <div class="experience-badge">
+                                <span class="badge-number" id="about-experience"></span>
+                                <span class="badge-text">Years</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="about-highlights">
-                        <h3>Key Highlights</h3>
-                        <ul class="highlights-list">
-                            <li>Expert in full-stack MERN development and legacy system modernization</li>
-                            <li>Proven track record scaling platforms handling millions of transactions</li>
-                            <li>Specialization in eCommerce, payment integration, and banking systems</li>
-                            <li>Strong DevOps background with Docker, Kubernetes, and AWS</li>
-                            <li>Available for immediate engagement and rapid project delivery</li>
-                        </ul>
+                    <div class="about-text">
+                        <h3 id="about-subtitle"></h3>
+                        <div id="about-paragraphs"></div>
+                        <div class="about-highlights" id="about-highlights">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                        <div class="about-cta">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-handshake"></i>
+                                <span id="about-cta-text"></span>
+                            </a>
+                            <div class="rate-badge">
+                                <span class="rate-label">Hourly Rate</span>
+                                <span class="rate-value" id="about-rate"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,49 +137,17 @@
         <section id="skills" class="skills">
             <div class="container">
                 <div class="section-header">
-                    <h2>Technical Skills</h2>
+                    <span class="section-tag" id="skills-tag"></span>
+                    <h2 id="skills-title"></h2>
                     <div class="header-line"></div>
                 </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Frontend Development</h3>
-                        <ul class="skill-list">
-                            <li>React.js & Next.js</li>
-                            <li>HTML5, CSS3, JavaScript (ES6+)</li>
-                            <li>Responsive & Mobile Design</li>
-                            <li>Redux, Context API</li>
-                            <li>Tailwind CSS, Material-UI</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Backend Development</h3>
-                        <ul class="skill-list">
-                            <li>Node.js & Express.js</li>
-                            <li>Python (Django, Flask)</li>
-                            <li>Java (Spring Boot)</li>
-                            <li>REST API Design</li>
-                            <li>Microservices Architecture</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Database & Storage</h3>
-                        <ul class="skill-list">
-                            <li>MongoDB & NoSQL</li>
-                            <li>MySQL & PostgreSQL</li>
-                            <li>Database Design & Optimization</li>
-                            <li>Redis Caching</li>
-                            <li>Data Modeling</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>DevOps & Tools</h3>
-                        <ul class="skill-list">
-                            <li>Docker & Kubernetes</li>
-                            <li>AWS (EC2, S3, RDS, Lambda)</li>
-                            <li>Git & GitHub CI/CD</li>
-                            <li>System Architecture</li>
-                            <li>Agile & Scrum</li>
-                        </ul>
+                <div class="skills-grid" id="skills-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <div class="tech-stack-showcase">
+                    <h4 id="tech-showcase-title"></h4>
+                    <div class="tech-icons" id="tech-icons">
+                        <!-- Populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -150,72 +157,18 @@
         <section id="projects" class="projects">
             <div class="container">
                 <div class="section-header">
-                    <h2>Featured Projects</h2>
+                    <span class="section-tag" id="projects-tag"></span>
+                    <h2 id="projects-title"></h2>
                     <div class="header-line"></div>
                 </div>
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3>eCommerce Platform</h3>
-                            <span class="project-badge">Full-Stack</span>
-                        </div>
-                        <p class="project-description">Built a full-featured eCommerce platform using MERN Stack with secure payment integration via Stripe, comprehensive inventory management, user authentication, order tracking, and admin dashboard.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Tech Stack</span>
-                                <span class="metric-value">React, Node.js, MongoDB, Stripe</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Impact</span>
-                                <span class="metric-value">50%+ faster checkout, 99.5% uptime</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn">View Details →</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3>Banking System</h3>
-                            <span class="project-badge">Enterprise</span>
-                        </div>
-                        <p class="project-description">Developed secure banking sector project with transaction processing, regulatory compliance (RBI standards), robust backend architecture, multi-factor authentication, and comprehensive audit logging.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Tech Stack</span>
-                                <span class="metric-value">Java, Spring Boot, PostgreSQL, AWS</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Security</span>
-                                <span class="metric-value">Bank-grade encryption & compliance</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn">View Details →</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-header">
-                            <h3>SaaS Application</h3>
-                            <span class="project-badge">Scalable</span>
-                        </div>
-                        <p class="project-description">Created scalable SaaS solution with microservices architecture, multi-tenant support, real-time analytics dashboard, automated billing, and Kubernetes orchestration for high availability.</p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-label">Tech Stack</span>
-                                <span class="metric-value">MERN, Docker, Kubernetes, AWS</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Scale</span>
-                                <span class="metric-value">Handles 10K+ concurrent users</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn">View Details →</a>
-                        </div>
-                    </article>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <div class="projects-cta">
+                    <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="projects-cta">
+                        <i class="fab fa-github"></i>
+                        <span id="projects-cta-text"></span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -223,29 +176,50 @@
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
-                <div class="section-header">
-                    <h2>Let's Work Together</h2>
+                <div class="section-header light">
+                    <span class="section-tag" id="contact-tag"></span>
+                    <h2 id="contact-title"></h2>
                     <div class="header-line"></div>
                 </div>
                 <div class="contact-content">
-                    <p class="contact-tagline">Open to long-term remote contracts, high-impact freelance projects, and architectural consulting</p>
-                    <div class="contact-links">
-                        <a href="https://www.upwork.com/freelancers/~01a611eb88692e6b85" class="contact-btn" target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon">💼</span>
-                            Upwork Profile
-                        </a>
-                        <a href="https://www.linkedin.com/in/aditya-prakash-50b6873a2/" class="contact-btn" target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon">💻</span>
-                            LinkedIn Profile
-                        </a>
-                        <a href="https://github.com/telltoadityap-svg" class="contact-btn" target="_blank" rel="noopener noreferrer">
-                            <span class="btn-icon">🔗</span>
-                            GitHub Portfolio
-                        </a>
-                        <a href="mailto:telltoadityap@gmail.com" class="contact-btn">
-                            <span class="btn-icon">✉️</span>
-                            Send Email
-                        </a>
+                    <div class="contact-info">
+                        <h3 id="contact-subtitle"></h3>
+                        <p id="contact-description"></p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="label">Email</span>
+                                    <a href="" id="contact-email"></a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="label">Response Time</span>
+                                    <span id="contact-response"></span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="label">Availability</span>
+                                    <span id="contact-availability"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-links-wrapper">
+                        <h4 id="contact-connect-title"></h4>
+                        <div class="contact-links" id="contact-links">
+                            <!-- Populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,29 +230,383 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Aditya Prakash. All rights reserved.</p>
-                <p class="footer-note">Expertise in scalable web applications, system architecture, and DevOps practices.</p>
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <span class="logo-bracket">&lt;</span><span id="footer-initials"></span><span class="logo-bracket">/&gt;</span>
+                    </a>
+                    <p id="footer-tagline"></p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h5>Quick Links</h5>
+                        <ul id="footer-quick-links">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h5>Connect</h5>
+                        <ul id="footer-connect-links">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-copyright"></span>. Crafted with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
             </div>
         </div>
     </footer>
-    
-    <!-- Hamburger Menu Toggle Script -->
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
 
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // ===== Populate Content from Config =====
+        function populateContent() {
+            // Meta Information
+            document.title = CONFIG.meta.title;
+            document.querySelector('meta[name="description"]').content = CONFIG.meta.description;
+            document.querySelector('meta[name="keywords"]').content = CONFIG.meta.keywords;
+            document.querySelector('meta[name="author"]').content = CONFIG.personal.name;
+            document.querySelector('meta[name="theme-color"]').content = CONFIG.meta.themeColor;
+
+            // Navigation
+            document.getElementById('nav-initials').textContent = CONFIG.personal.initials;
+            const navLinksContainer = document.getElementById('nav-links');
+            CONFIG.nav.links.forEach(link => {
+                navLinksContainer.innerHTML += `<li><a href="${link.href}" class="nav-link ${link.href === '#home' ? 'active' : ''}">${link.text}</a></li>`;
+            });
+            navLinksContainer.innerHTML += `<li><a href="${CONFIG.social.upwork}" class="nav-cta" target="_blank" rel="noopener noreferrer">${CONFIG.nav.ctaText}</a></li>`;
+
+            // Hero Section
+            document.getElementById('hero-badge-text').textContent = CONFIG.hero.badge;
+            document.getElementById('hero-greeting').textContent = CONFIG.hero.greeting;
+            document.getElementById('hero-name').textContent = CONFIG.personal.name;
+            document.getElementById('typing-text').textContent = CONFIG.hero.typingTexts[0];
+            document.getElementById('hero-description').innerHTML = CONFIG.hero.description;
+            document.getElementById('hero-cta-primary').textContent = CONFIG.hero.ctaPrimary;
+            document.getElementById('hero-cta-secondary').textContent = CONFIG.hero.ctaSecondary;
+
+            // Hero Stats
+            const statsContainer = document.getElementById('hero-stats');
+            CONFIG.stats.forEach(stat => {
+                statsContainer.innerHTML += `
+                    <div class="stat">
+                        <div class="stat-number">${stat.number}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `;
             });
 
-            // Close menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                });
+            // Hero Social Links
+            const socialContainer = document.getElementById('hero-social');
+            socialContainer.innerHTML = `
+                <a href="${CONFIG.social.github}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="${CONFIG.social.linkedin}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="${CONFIG.social.upwork}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Upwork">
+                    <i class="fas fa-briefcase"></i>
+                </a>
+                <a href="mailto:${CONFIG.personal.email}" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            `;
+
+            // Code Window
+            document.getElementById('code-filename').textContent = CONFIG.codeWindow.filename;
+            const codeContent = CONFIG.codeWindow.content;
+            document.getElementById('code-content').innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"${codeContent.name}"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"${codeContent.role}"</span>,
+  <span class="code-property">experience</span>: <span class="code-string">"${codeContent.experience}"</span>,
+  <span class="code-property">skills</span>: [
+    ${codeContent.skills.map(s => `<span class="code-string">"${s}"</span>`).join(', ')}
+  ],
+  <span class="code-property">passion</span>: <span class="code-string">"${codeContent.passion}"</span>,
+  <span class="code-method">hireable</span>: () => <span class="code-boolean">true</span>
+};`;
+
+            // About Section
+            document.getElementById('about-tag').textContent = CONFIG.about.sectionTag;
+            document.getElementById('about-title').textContent = CONFIG.about.title;
+            document.getElementById('about-subtitle').textContent = CONFIG.about.subtitle;
+            document.getElementById('about-experience').textContent = CONFIG.about.experienceYears;
+            document.getElementById('about-cta-text').textContent = CONFIG.about.ctaText;
+            document.getElementById('about-rate').textContent = CONFIG.personal.hourlyRate;
+
+            const aboutParagraphs = document.getElementById('about-paragraphs');
+            CONFIG.about.paragraphs.forEach(p => {
+                aboutParagraphs.innerHTML += `<p>${p}</p>`;
+            });
+
+            const highlightsContainer = document.getElementById('about-highlights');
+            CONFIG.about.highlights.forEach(highlight => {
+                highlightsContainer.innerHTML += `
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>${highlight}</span>
+                    </div>
+                `;
+            });
+
+            // Skills Section
+            document.getElementById('skills-tag').textContent = CONFIG.skills.sectionTag;
+            document.getElementById('skills-title').textContent = CONFIG.skills.title;
+            document.getElementById('tech-showcase-title').textContent = CONFIG.skills.techShowcaseTitle;
+
+            const skillsGrid = document.getElementById('skills-grid');
+            CONFIG.skills.categories.forEach((category, index) => {
+                const skillsList = category.skills.map(skill => `
+                    <li>
+                        <span class="skill-name">${skill.name}</span>
+                        <span class="skill-level ${skill.level}">${skill.level.charAt(0).toUpperCase() + skill.level.slice(1)}</span>
+                    </li>
+                `).join('');
+
+                skillsGrid.innerHTML += `
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="skill-icon">
+                            <i class="fas ${category.icon}"></i>
+                        </div>
+                        <h3>${category.title}</h3>
+                        <ul class="skill-list">
+                            ${skillsList}
+                        </ul>
+                    </div>
+                `;
+            });
+
+            const techIcons = document.getElementById('tech-icons');
+            CONFIG.skills.techIcons.forEach(tech => {
+                techIcons.innerHTML += `<div class="tech-icon" title="${tech.title}"><i class="${tech.icon}"></i></div>`;
+            });
+
+            // Projects Section
+            document.getElementById('projects-tag').textContent = CONFIG.projects.sectionTag;
+            document.getElementById('projects-title').textContent = CONFIG.projects.title;
+            document.getElementById('projects-cta').href = CONFIG.social.github;
+            document.getElementById('projects-cta-text').textContent = CONFIG.projects.ctaText;
+
+            const projectsGrid = document.getElementById('projects-grid');
+            CONFIG.projects.items.forEach(project => {
+                const techTags = project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+                const metrics = project.metrics.map(m => `
+                    <div class="metric">
+                        <i class="fas ${m.icon}"></i>
+                        <span>${m.text}</span>
+                    </div>
+                `).join('');
+
+                projectsGrid.innerHTML += `
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="fas ${project.icon}"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="${project.link}" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3>${project.title}</h3>
+                                <span class="project-badge ${project.badgeClass}">${project.badge}</span>
+                            </div>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tech">${techTags}</div>
+                            <div class="project-metrics">${metrics}</div>
+                        </div>
+                    </article>
+                `;
+            });
+
+            // Contact Section
+            document.getElementById('contact-tag').textContent = CONFIG.contact.sectionTag;
+            document.getElementById('contact-title').textContent = CONFIG.contact.title;
+            document.getElementById('contact-subtitle').textContent = CONFIG.contact.subtitle;
+            document.getElementById('contact-description').textContent = CONFIG.contact.description;
+            document.getElementById('contact-connect-title').textContent = CONFIG.contact.connectTitle;
+            
+            const contactEmail = document.getElementById('contact-email');
+            contactEmail.href = `mailto:${CONFIG.personal.email}`;
+            contactEmail.textContent = CONFIG.personal.email;
+            
+            document.getElementById('contact-response').textContent = CONFIG.personal.responseTime;
+            document.getElementById('contact-availability').textContent = CONFIG.personal.availability;
+
+            const contactLinks = document.getElementById('contact-links');
+            CONFIG.contact.links.forEach(link => {
+                const isExternal = link.url.startsWith('http');
+                contactLinks.innerHTML += `
+                    <a href="${link.url}" class="contact-btn ${link.class}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                        <i class="${link.icon}"></i>
+                        <span>${link.text}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                `;
+            });
+
+            // Footer
+            document.getElementById('footer-initials').textContent = CONFIG.personal.initials;
+            document.getElementById('footer-tagline').textContent = CONFIG.footer.tagline;
+            document.getElementById('footer-copyright').textContent = CONFIG.footer.copyright;
+
+            const footerQuickLinks = document.getElementById('footer-quick-links');
+            CONFIG.footer.quickLinks.forEach(link => {
+                footerQuickLinks.innerHTML += `<li><a href="${link.href}">${link.text}</a></li>`;
+            });
+
+            const footerConnectLinks = document.getElementById('footer-connect-links');
+            CONFIG.footer.connectLinks.forEach(link => {
+                const isExternal = link.href.startsWith('http');
+                footerConnectLinks.innerHTML += `<li><a href="${link.href}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>${link.text}</a></li>`;
             });
         }
+
+        // Initialize content on load
+        document.addEventListener('DOMContentLoaded', populateContent);
+
+        // ===== Interactive Features =====
+        
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navbar = document.querySelector('.navbar');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('nav-link')) {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinksList = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksList.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Typing animation
+        function initTypingAnimation() {
+            const typingTexts = CONFIG.hero.typingTexts;
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingElement = document.getElementById('typing-text');
+
+            function type() {
+                const currentText = typingTexts[textIndex];
+                
+                if (isDeleting) {
+                    typingElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % typingTexts.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            type();
+        }
+
+        document.addEventListener('DOMContentLoaded', initTypingAnimation);
+
+        // Smooth scroll for anchor links
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.skill-category, .project-card, .about-content, .contact-content').forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 </html>
