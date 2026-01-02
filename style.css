@@ -115,14 +115,14 @@ body {
 
 .about {
     padding: 4rem 0;
-    background: white;
+    background: #1F2937;
 }
 
 .about h2, .skills h2, .projects h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #;
+    color: #F3F4F6;
 }
 
 .about p {
@@ -159,7 +159,7 @@ body {
 
 .skills {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #1F2937;
 }
 
 .skills h2 {
@@ -207,7 +207,7 @@ body {
 
 .projects {
     padding: 4rem 0;
-    background: white;
+    background: #1F2937;
 }
 
 .projects-grid {
